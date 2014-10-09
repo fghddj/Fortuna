@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         println("controller \(self)")
         println("view: \(self.view)")
         println("view's frame: \(self.view.frame)")
+
     }
 
     override func didReceiveMemoryWarning() {
