@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        println("Hacking in Swift, since IOS8")
+        println("controller \(self)")
+        println("view: \(self.view)")
+        println("view's frame: \(self.view.frame)")
     }
 
     override func didReceiveMemoryWarning() {
