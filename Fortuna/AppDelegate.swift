@@ -16,17 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var negativeQuotes: [String]!
     
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // load quotations from JSON file
-        let path = NSBundle.mainBundle().pathForResource("positiveQuotes", ofType: "json")
-        self.positiveQuotes = loadQuotes("positiveQuotes")
-        self.negativeQuotes = loadQuotes("negativeQuotes")
-        // Assertions to make sure that the quotations are loaded.
-        assert(positiveQuotes.count > 0, "should load positive quotes")
-        assert(negativeQuotes.count > 0, "should load negative quotes")
-
+        //let path = NSBundle.mainBundle().pathForResource("negative", ofType: "json")
+        //println("negative quotes path: \(path)")
+        self.positiveQuotes = loadQuotes("positive")
+        self.negativeQuotes = loadQuotes("negative")
+        
+        // Assertions to make sure that the quotations are loaded
+        assert(self.positiveQuotes.count > 0, "should load positive quotes")
+        assert(self.negativeQuotes.count > 0, "should load negative quotes")
+        
         return true
     }
     
@@ -37,14 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // parse JSON data
         var err: NSError?
-        let quotes: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.allZeros, error: &err)
+        let quotes = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.allZeros, error: &err) as [String]
         assert(err == nil, "Error parsing json: \(err)")
-        if let quoteResult = quotes as? [String] {
-            return quoteResult
-        }
         
-        return nil
+        return quotes
     }
+    
+
 
 
     func applicationWillResignActive(application: UIApplication) {

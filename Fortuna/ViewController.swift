@@ -10,14 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var quotationTextView: UITextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("Hacking in Swift, since IOS8")
-        println("controller \(self)")
-        println("view: \(self.view)")
-        println("view's frame: \(self.view.frame)")
+        println("viewDidLoad quotationTextView: \(quotationTextView)")
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        func displayRandomQuote() -> [String] {
+            // quotes = randomly choose positive or negative
+            
+            // quote = randomly choose an element from quotes
+            
+        }
 
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
