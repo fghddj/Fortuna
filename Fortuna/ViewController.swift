@@ -18,12 +18,12 @@ class ViewController: UIViewController {
         println("viewDidLoad quotationTextView: \(quotationTextView)")
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         
-        func displayRandomQuote() -> [String] {
+        /*func displayRandomQuote() -> [String] {
             // quotes = randomly choose positive or negative
             
             // quote = randomly choose an element from quotes
             
-        }
+        }*/
 
     }
     
